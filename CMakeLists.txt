@@ -59,6 +59,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   BodyTracker.msg
+  Skeleton.msg
 )
 
 ## Generate services in the 'srv' folder

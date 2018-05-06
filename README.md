@@ -1,7 +1,8 @@
 # body_tracker_msgs
 
 ## Description:
-   - Custom message used for body tracker nodes.  
-   - Provides skeleton tracking info
+   - Custom messages used for body tracker nodes.
+   - BodyTracker.msg: Provides 2D and 3D position of people detected  
+   - Skelton.msg: Provides skeleton tracking info
    
 
