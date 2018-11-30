@@ -1,4 +1,3 @@
-#Header header
 int32  body_id
 int32  tracking_status
 int32  gesture
