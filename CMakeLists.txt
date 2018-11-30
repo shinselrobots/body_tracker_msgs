@@ -4,21 +4,13 @@ project(body_tracker_msgs)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
-#set(CMAKE_PREFIX_PATH $CMAKE_PREFIX_PATH;"/home/system/AstraSDK/samples/cmake/")
-#set(CMAKE_MODULE_PATH $CMAKE_MODULE_PATH; "/home/system/AstraSDK/samples/cmake/")
-
-#MESSAGE( STATUS "CMAKE_PREFIX_PATH:         " ${CMAKE_PREFIX_PATH} )
-#MESSAGE( STATUS "CMAKE_MODULE_PATH:         " ${CMAKE_MODULE_PATH} )
-
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
   geometry_msgs
   message_generation
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -57,9 +49,12 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate messages in the 'msg' folder
 add_message_files(
+  DIRECTORY
+    msg
   FILES
-  BodyTracker.msg
-  Skeleton.msg
+    BodyTracker.msg
+    BodyTrackerArray.msg
+    Skeleton.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -79,8 +74,8 @@ add_message_files(
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
    DEPENDENCIES
-   std_msgs
    geometry_msgs
+   std_msgs
 )
 
 ################################################
@@ -114,10 +109,10 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES astra_body_tracker
-  CATKIN_DEPENDS std_msgs message_runtime
-#  DEPENDS system_lib
+  CATKIN_DEPENDS 
+  geometry_msgs 
+  message_runtime
+  std_msgs
 )
 
 ###########
@@ -126,10 +121,10 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
+#include_directories(
 # include
-  ${catkin_INCLUDE_DIRS}
-)
+#  ${catkin_INCLUDE_DIRS}
+#)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
